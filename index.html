@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Поддержка автора</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,7 +18,7 @@ body {
   position: relative;
 }
 
-/* Фоновый слой (фон + стикеры) */
+/* Фон */
 .background {
   position: fixed;
   inset: 0;
@@ -25,30 +27,23 @@ body {
   filter: blur(8px);
 }
 
-/* Фон */
 .background img.bg-image {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-/* Стикеры */
 .background img.sticker {
   position: absolute;
   width: 500px;
 }
 
-/* Позиции стикеров */
 .background img.top-left { top: -60px; left: -210px; }
-.background img.top-right { top:420px; right: -100px; }
-.background img.bottom-left { bottom: 20px; left: 20px; }
-.background img.bottom-right { bottom: 20px; right: 20px; }
+.background img.top-right { top: 420px; right: -100px; }
 
-/* Основной контент */
+/* Контент */
 .container {
   position: relative;
   z-index: 2;
@@ -73,16 +68,24 @@ body {
   width: 120px;
   height: 120px;
   border-radius: 50%;
-  object-fit: cover;
   border: 3px solid #ff9800;
+  object-fit: cover;
 }
 
-.avatar-name { font-size: 28px; font-weight: 700; }
-.avatar-desc { font-size: 16px; opacity: 0.85; text-align: center; line-height: 1.4; }
+.avatar-name {
+  font-size: 28px;
+  font-weight: 700;
+}
 
-/* Оплаты */
+.avatar-desc {
+  font-size: 16px;
+  opacity: 0.85;
+  text-align: center;
+}
+
+/* Платежи */
 .payments {
-  flex: 1 1 250px;
+  flex: 1 1 260px;
   display: flex;
   flex-direction: column;
   gap: 15px;
@@ -95,8 +98,17 @@ body {
   padding: 15px 20px;
 }
 
-.payment-block span { display: block; font-size: 13px; opacity: 0.7; margin-bottom: 5px; }
-.payment-block strong { font-size: 15px; word-break: break-all; }
+.payment-block span {
+  display: block;
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 6px;
+}
+
+.payment-block strong {
+  font-size: 15px;
+  word-break: break-all;
+}
 
 /* Кнопки */
 .btn {
@@ -108,9 +120,13 @@ body {
   font-weight: 600;
   color: #000;
   text-align: center;
-  transition: transform .15s ease, box-shadow .15s ease;
+  transition: 0.15s;
 }
-.btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(255,165,0,0.35); }
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(255,165,0,0.35);
+}
 
 /* Футер */
 .footer {
@@ -124,54 +140,79 @@ body {
 
 /* Адаптив */
 @media (max-width: 768px) {
-  .container { flex-direction: column; gap: 30px; padding: 20px; }
-  .payments { width: 100%; max-width: 300px; }
+  .container {
+    flex-direction: column;
+    gap: 30px;
+    padding: 20px;
+  }
+
+  .payments {
+    width: 100%;
+    max-width: 320px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- Фон + стикеры -->
+<!-- Фон -->
 <div class="background">
-  <img src="bg.jpg" alt="Фон" class="bg-image">
+  <img src="bg.jpg" class="bg-image" alt="">
   <img src="sticker1.png" class="sticker top-left">
   <img src="sticker2.png" class="sticker top-right">
 </div>
 
 <div class="container">
+
   <div class="avatar-block">
     <img src="ava.png" class="avatar">
     <div class="avatar-name">BorodaKZ</div>
-    <div class="avatar-desc">Поддержи донатом ❤️<br></div>
+    <div class="avatar-desc">Поддержи донатом ❤️</div>
   </div>
 
   <div class="payments">
-  <div class="payment-block">
-    <span>Kaspi — GRIGORIY KOLESNIKOV</span>
-    <strong> +77003060747 \ 4400430376755168 </strong>
+
+    <div class="payment-block">
+      <span>Kaspi — GRIGORIY KOLESNIKOV</span>
+      <strong>+77003060747 \ 4400430376755168</strong>
+    </div>
+
+    <!-- КРИПТО КОШЕЛЁК -->
+    <div class="payment-block">
+      <span>Crypto — USDT (TRC20)</span>
+      <strong>TXxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</strong>
+    </div>
+
+    <a class="btn" href="https://www.donationalerts.com/r/borodakz" target="_blank"
+       style="background: linear-gradient(135deg,#ffb300,#ff6f00);">
+       Donation Alerts
+    </a>
+
+    <a class="btn" href="https://www.twitch.tv/borodakz" target="_blank"
+       style="background: linear-gradient(135deg,#9146FF,#772CE8);">
+       Twitch
+    </a>
+
+    <a class="btn" href="https://t.me/borodakz14" target="_blank"
+       style="background: linear-gradient(135deg,#37AEE2,#1D96C9);">
+       Telegram
+    </a>
+
+    <a class="btn" href="https://www.instagram.com/grigoriy.kolesnikov" target="_blank"
+       style="background: linear-gradient(135deg,#F58529,#DD2A7B);">
+       Instagram
+    </a>
+
+    <a class="btn" href="https://www.tiktok.com/@borodakzz" target="_blank"
+       style="background: linear-gradient(135deg,#69C9D0,#EE1D52);">
+       TikTok
+    </a>
+
   </div>
-
-  <a class="btn" href="https://www.donationalerts.com/r/borodakz" target="_blank"
-     style="background: linear-gradient(135deg,#ffb300,#ff6f00);">Donation Alerts</a>
-
-  <!-- Новая кнопка Twitch -->
-  <a class="btn" href="https://www.twitch.tv/borodakz" target="_blank"
-     style="background: linear-gradient(135deg,#9146FF,#772CE8);">Twitch</a>
-
-  <a class="btn" href="https://t.me/borodakz14" target="_blank"
-     style="background: linear-gradient(135deg,#37AEE2,#1D96C9);">Telegram</a>
-
-  <a class="btn" href="https://www.instagram.com/grigoriy.kolesnikov?igsh=eXlyMndna2hieHEy&utm_source=qr" target="_blank"
-     style="background: linear-gradient(135deg,#F58529,#DD2A7B);">Instagram</a>
-
-  <a class="btn" href="https://www.tiktok.com/@borodakzz?_r=1&_t=ZS-93I5rI1jYDy" target="_blank"
-     style="background: linear-gradient(135deg,#69C9D0,#EE1D52);">TikTok</a>
-</div>
 </div>
 
 <div class="footer">© 2026</div>
 
 </body>
 </html>
-
